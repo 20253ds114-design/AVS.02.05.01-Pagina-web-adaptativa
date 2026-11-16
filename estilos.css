@@ -1,0 +1,577 @@
+/* 1. VARIABLES DE COLOR Y TIPOGRAFÍA (*/
+:root {
+    --color-primario: #0284c7;
+    --color-primario-hover: #0369a1;
+    --color-fondo: #f8fafc;
+    --color-tarjeta: #ffffff;
+    --color-texto: #1e293b;
+    --color-texto-suave: #475569;
+    --color-oscuro: #1e293b;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --sombra-suave: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* 2. ENCABEZADO Y MENÚ HAMBURGUESA MÓVIL */
+#header-principal {
+    background-color: #e0f2fe;
+    border-bottom: 2px solid #bae6fd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra-suave);
+}
+
+.barra-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0.85rem 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    text-decoration: none;
+    border: 2px solid var(--color-primario);
+    padding: 0.15rem 0.55rem;
+    border-radius: 6px;
+    background-color: var(--color-tarjeta);
+    display: inline-block;
+}
+
+/* Ocultamos el checkbox real; solo usamos su estado :checked */
+.menu-checkbox {
+    display: none;
+}
+
+/* Ícono de 3 líneas horizontales */
+.menu-hamburguesa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.menu-hamburguesa span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--color-texto);
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transformación visual a 'X' al abrir el menú */
+.menu-checkbox:checked + .menu-hamburguesa span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-checkbox:checked + .menu-hamburguesa span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-checkbox:checked + .menu-hamburguesa span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Lista de navegación oculta por defecto en móvil */
+.menu-principal {
+    display: none;
+    width: 100%;
+    margin-top: 0.85rem;
+    background-color: var(--color-tarjeta);
+    border-radius: 10px;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+}
+
+.menu-checkbox:checked ~ .menu-principal {
+    display: block;
+}
+
+.menu-principal ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-principal li {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.menu-principal li:last-child {
+    border-bottom: none;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.85rem 1.2rem;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 600;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+/* 3. SECCIONES, TÍTULOS, IMÁGENES Y BOTONES*/
+.seccion-bloque {
+    padding: 2rem 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.seccion-alterna {
+    background-color: var(--color-tarjeta);
+}
+
+h1 {
+    font-size: 1.75rem;
+    color: var(--color-texto);
+    text-align: center;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.35rem;
+    color: var(--color-primario);
+    margin-bottom: 0.65rem;
+    font-weight: 700;
+}
+
+.texto-cuerpo {
+    font-size: 0.98rem;
+    color: var(--color-texto-suave);
+    text-align: left;
+}
+
+.contenedor-imagen {
+    width: 100%;
+    border: 2px solid #94a3b8;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--color-tarjeta);
+    margin-bottom: 1rem;
+}
+
+.contenedor-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Botones redondeados tipo píldora (Wireframes 1 y 4) */
+.boton-pildora {
+    display: inline-block;
+    padding: 0.7rem 2.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.boton-pildora:hover {
+    transform: translateY(-2px);
+}
+
+.boton-primario {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+.boton-primario:hover {
+    background-color: var(--color-primario-hover);
+}
+
+.boton-oscuro {
+    background-color: var(--color-oscuro);
+    color: #ffffff;
+}
+
+.boton-oscuro:hover {
+    background-color: var(--color-primario);
+}
+
+/* 4. SECCIÓN HOME Y CARRUSEL */
+.hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.proyectos-bloque h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--color-texto);
+    margin-bottom: 1rem;
+}
+
+.carrusel-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scroll-snap-type: x mandatory;
+}
+
+.carrusel-pista {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+}
+
+.carrusel-item {
+    background-color: var(--color-tarjeta);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    scroll-snap-align: center;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.carrusel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carrusel-titulo {
+    display: block;
+    padding: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+/* Tarjeta central protagonista y laterales asomándose */
+.carrusel-item.activo {
+    flex: 0 0 60%;
+    border: 2px solid var(--color-primario);
+    z-index: 2;
+}
+
+.carrusel-item.lateral {
+    flex: 0 0 24%;
+    opacity: 0.72;
+    transform: scale(0.9);
+}
+
+/*5. SECCIÓN SOBRE MÍ */
+.sobre-mi-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.servicios-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.tarjeta-servicio {
+    background-color: var(--color-tarjeta);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+}
+
+/* 6. SECCIÓN CONTACTO, VIDEO Y MAPA */
+.contacto-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    align-items: center;
+}
+
+.input-grupo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--color-texto);
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 0.35rem 0.65rem;
+}
+
+.input-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    color: var(--color-texto);
+    font-weight: 700;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+}
+
+.input-grupo input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: var(--fuente-principal);
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background: transparent;
+}
+
+.input-grupo-area {
+    width: 100%;
+}
+
+.input-grupo-area textarea {
+    width: 100%;
+    border: 2px solid var(--color-texto);
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-family: var(--fuente-principal);
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    resize: vertical;
+}
+
+.contacto-extras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.video-marco {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    background-color: #cbd5e1;
+}
+
+.video-marco video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.enlace-mapa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.enlace-mapa:hover {
+    color: var(--color-primario);
+}
+
+
+#footer-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #e2e8f0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.icono-chat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #94a3b8;
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: background-color 0.25s ease;
+}
+
+.icono-chat:hover {
+    background-color: var(--color-primario);
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.icono-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: #475569;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.icono-social:last-child {
+    border-radius: 50%;
+}
+
+.icono-social:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .seccion-bloque {
+        padding: 1.75rem 1.1rem;
+    }
+
+    h1 {
+        font-size: 1.65rem;
+    }
+
+    .carrusel-item.activo {
+        flex: 0 0 64%;
+    }
+
+    .carrusel-item.lateral {
+        flex: 0 0 22%;
+    }
+}
+
+
+@media screen and (orientation: landscape) and (min-width: 560px) {
+    /* Ocultamos botón hamburguesa y mostramos menú horizontal */
+    .menu-hamburguesa {
+        display: none;
+    }
+
+    .menu-principal {
+        display: block;
+        width: auto;
+        margin-top: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .menu-principal ul {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+
+    .menu-principal li {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        padding: 0.45rem 0.9rem;
+        border-radius: 6px;
+    }
+
+    /* Home: Imagen a la izquierda, descripción y botón a la derecha */
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .hero-grid .contenedor-imagen {
+        margin-bottom: 0;
+    }
+
+    .hero-info {
+        align-items: flex-start;
+        margin-bottom: 0;
+    }
+
+    /* Carrusel: Las 3 tarjetas visibles en paralelo sin recortes */
+    .carrusel-pista {
+        gap: 1rem;
+    }
+
+    .carrusel-item.activo,
+    .carrusel-item.lateral {
+        flex: 1 1 30%;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Sobre mí: 3 columnas (Imagen - Biografía - Imagen) */
+    .sobre-mi-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr 1fr;
+        gap: 1.25rem;
+        align-items: center;
+    }
+
+    .sobre-mi-layout .contenedor-imagen {
+        margin-bottom: 0;
+    }
+
+    /* Servicios: Diseño web y Base de datos en 2 columnas paralelas */
+    .servicios-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Contacto: Formulario a la izquierda, Video y Mapa a la derecha */
+    .contacto-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+}
